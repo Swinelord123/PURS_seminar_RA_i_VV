@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="5">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .table-container {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #555;
+            padding: 6px;
+            text-align: center;
+        }
+
+        th {
+            background: #eee;
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+<table>
+    <tr>
+        <th>Vrijeme</th>
+        <th>Temperatura</th>
+        <th>Vlaga</th>
+        <th>Tip alarma</th>
+    </tr>
+
+    {% for row in alarm_history %}
+    <tr>
+        <td>{{ row.timestamp }}</td>
+        <td>{{ row.temperature }}</td>
+        <td>{{ row.humidity }}</td>
+        <td>{{ row.alarm_type }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+</body>
+</html>
